@@ -1,0 +1,11 @@
+.controller-area {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+}
+.controller-area p {
+    font-weight: bold;
+    color: #24cfda;
+}
