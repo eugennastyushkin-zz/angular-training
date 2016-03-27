@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <title>Angular training Task 1</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script>
-
-        angular.module('task1', [])
-            .controller('MyController', ['$scope', function($scope) {
-                $scope.sharedValue = 'Some shared value';
-            }]);
-
-    </script>
+    <script src="script/main.js"></script>
+    <link rel="stylesheet" href="style/style.css">
 </head>
-<body ng-app="task1">
-    <div ng-controller="MyController">
-        <p ng-bind="sharedValue"></p>
-        <label>Write something to share: <input type="text" ng-model="sharedValue"></label>
+
+<body ng-app="task1" ng-init=" value = 'Some shared value'">
+
+    <div class="controller-area" ng-controller="ParentCtrl1">
+
+        <p>{{value}}</p>
+        <label>Share in parentCtrl1: <input type="text" ng-model="value"></label>
+
+        <!-- CHILD 1 -->
+        <div class="controller-area" ng-controller="ChildCtrl1">
+            <p>{{value}}</p>
+            <label>Share in childCtrl1: <input type="text" ng-model="value"></label>
+        </div>
+
+        <!-- CHILD 2 -->
+        <div class="controller-area" ng-controller="ChildCtrl2">
+            <p>{{value}}</p>
+            <label>Share in childCtrl2: <input type="text" ng-model="value"></label>
+        </div>
+
     </div>
 
+    <div class="controller-area" ng-controller="ParentCtrl2">
+        <p>{{value}}</p>
+        <label>Share in parentCtrl2: <input type="text" ng-model="value"></label>
+    </div>
 
 </body>
 </html>
