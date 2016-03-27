@@ -13,10 +13,10 @@
 
     </script>
 </head>
-<body>
-    <div ng-controller="MyController as parentController">
-        <p ng-bind="parentController.sharedValue"></p>
-        <label>Write something to share: <input type="text" ng-model="parentController.sharedValue"></label>
+<body ng-app="task1">
+    <div ng-controller="MyController">
+        <p ng-bind="sharedValue"></p>
+        <label>Write something to share: <input type="text" ng-model="sharedValue"></label>
     </div>
 
 
