@@ -1,0 +1,8 @@
+<a href="#" ng-click="show = !show">
+    <span>{{title}}</span>
+</a>
+
+<div ng-show="show">
+    {{tubNumber}}
+    <ng-transclude></ng-transclude>
+</div>
