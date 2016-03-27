@@ -8,30 +8,30 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 
-<body ng-app="task1" ng-init=" value = 'Some shared value'">
+<body ng-app="task1" ng-controller="MainCtrl">
 
     <div class="controller-area" ng-controller="ParentCtrl1">
 
-        <p>{{value}}</p>
-        <label>Share in parentCtrl1: <input type="text" ng-model="value"></label>
+        <p>{{shared.value}}</p>
+        <label>Share in parentCtrl1: <input type="text" ng-model="shared.value"></label>
 
         <!-- CHILD 1 -->
         <div class="controller-area" ng-controller="ChildCtrl1">
-            <p>{{value}}</p>
-            <label>Share in childCtrl1: <input type="text" ng-model="value"></label>
+            <p>{{shared.value}}</p>
+            <label>Share in childCtrl1: <input type="text" ng-model="shared.value"></label>
         </div>
 
         <!-- CHILD 2 -->
         <div class="controller-area" ng-controller="ChildCtrl2">
-            <p>{{value}}</p>
-            <label>Share in childCtrl2: <input type="text" ng-model="value"></label>
+            <p>{{shared.value}}</p>
+            <label>Share in childCtrl2: <input type="text" ng-model="shared.value"></label>
         </div>
 
     </div>
 
     <div class="controller-area" ng-controller="ParentCtrl2">
-        <p>{{value}}</p>
-        <label>Share in parentCtrl2: <input type="text" ng-model="value"></label>
+        <p>{{shared.value}}</p>
+        <label>Share in parentCtrl2: <input type="text" ng-model="shared.value"></label>
     </div>
 
 </body>
