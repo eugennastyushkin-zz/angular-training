@@ -1,20 +1,42 @@
 var app = angular.module('task2', []);
 
-app.controller('MainCtrl', ['$scope', function($scope){
-    $scope.show = false;
-}]);
-
-app.directive('tab', function(){
+app.directive('tabControl', function(){
     return {
         restrict: 'E',
         transclude: true,
+        scope: {},
+        templateUrl: 'directive/tab-control.html',
+        controller: function($scope){
+            var panes = $scope.panes = [];
+
+            $scope.select = function(pane) {
+                angular.forEach(panes, function(pane) {
+                    pane.selected = false;
+                });
+                pane.selected = true;
+            };
+
+            this.addPane = function(pane) {
+                if (panes.length === 0) {
+                    $scope.select(pane);
+                }
+                panes.push(pane);
+            };
+        }
+    };
+});
+
+app.directive('tab', function(){
+    return {
+        require: '^^tabControl',
+        restrict: 'E',
+        transclude: true,
         scope: {
-            title:'@',
-            tubNumber: '@'
+            title:'@'
         },
         templateUrl: 'directive/tab.html',
-        controller: function($scope, $element){
-            $element.find('a').css('left', $scope.tubNumber * 92 - 92 + 'px');
+        link: function(scope, element, attrs, tabControlController){
+            tabControlController.addPane(scope);
         }
     };
 });
