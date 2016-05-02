@@ -2,10 +2,8 @@ var app = angular.module('task5', []);
 
 app.service('blockService', function () {
     return {
-        data: {
-            first: 'first',
-            second: 'second'
-        }
+        first: { value : 'first' },
+        second: { value : 'second' }
     }
 });
 
@@ -16,9 +14,9 @@ app.directive("block1", ['blockService', function (blockService) {
         restrict: 'E',
         scope: {},
         controller: function ($scope) {
-            $scope.data = blockService.data;
+            $scope.data = blockService.first;
             $scope.set = function (value) {
-                blockService.data.second = value;
+                blockService.second.value = value;
             };
         },
         templateUrl: 'directive.html'
@@ -30,9 +28,9 @@ app.directive("block2", ['blockService', function (blockService) {
         restrict: 'E',
         scope: {},
         controller: function ($scope) {
-            $scope.data = blockService.data;
+            $scope.data = blockService.second;
             $scope.set = function (value) {
-                blockService.data.first = value;
+                blockService.first.value = value;
             };
         },
         templateUrl: 'directive.html'
