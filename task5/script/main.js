@@ -9,15 +9,14 @@ app.service('blockService', function () {
     }
 });
 
-app.controller('MainCtrl', ['$scope', function ($scope) { }]);
+app.controller('MainCtrl', function ($scope) { });
 
 app.directive("block1", ['blockService', function (blockService) {
     return {
         restrict: 'E',
         scope: {},
         controller: function ($scope) {
-            $scope.data = blockService.data.first;
-
+            $scope.data = blockService.data;
             $scope.set = function (value) {
                 blockService.data.second = value;
             };
@@ -31,8 +30,7 @@ app.directive("block2", ['blockService', function (blockService) {
         restrict: 'E',
         scope: {},
         controller: function ($scope) {
-            $scope.data = blockService.data.second;
-
+            $scope.data = blockService.data;
             $scope.set = function (value) {
                 blockService.data.first = value;
             };
