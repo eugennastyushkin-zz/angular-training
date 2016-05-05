@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular training Task 7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="script/main.js"></script>
+</head>
+
+<body ng-app="task6">
+    <div ng-controller="MainCtrl">
+
+        <h1>Task 6</h1>
+
+        <div>
+            <h4>setTimeout</h4>
+            <div>
+                <input type="text" ng-model="text1">
+                <button ng-click="sentJS(text1)">OK</button>
+                <div>sent text is: {{textJS}}</div>
+            </div>
+        </div>
+
+        <div>
+            <h4>$timeout</h4>
+            <div>
+                <input type="text" ng-model="text2">
+                <button ng-click="sentAngular(text2)">OK</button>
+                <div>sent text is: {{textAngular}}</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
