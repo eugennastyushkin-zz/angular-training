@@ -1,4 +1,4 @@
-var app = angular.module('task6', []);
+var app = angular.module('task7', []);
 
 app.controller('MainCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
     $scope.fileList = fileList;
